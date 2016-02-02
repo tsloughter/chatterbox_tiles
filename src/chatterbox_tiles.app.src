@@ -1,0 +1,21 @@
+{application, chatterbox_tiles,
+ [{description, "An OTP application"},
+  {vsn, "0.1.0"},
+  {registered, []},
+  {mod, { chatterbox_tiles_app, []}},
+  {applications,
+   [kernel,
+    stdlib,
+    cowlib,
+    qsp,
+    emagick,
+    uuid,
+    chatterbox
+   ]},
+  {env,[]},
+  {modules, []},
+
+  {maintainers, []},
+  {licenses, []},
+  {links, []}
+ ]}.

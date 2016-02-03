@@ -3,6 +3,8 @@ chatterbox_tiles
 
 An Erlang take on [GopherTiles](https://http2.golang.org/gophertiles) http2 example.
 
+Known to work with firefox after following [Chatterbox instructions](https://github.com/joedevivo/chatterbox#setting-up-firefox-go-to-the-url-aboutconfig-and-search-for-the).
+
 Build
 -----
 

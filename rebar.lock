@@ -1,6 +1,6 @@
 [{<<"chatterbox">>,
-  {git,"https://github.com/tsloughter/chatterbox.git",
-       {ref,"ee2a359301bf2170f5fe80482441130cd1e46d9e"}},
+  {git,"https://github.com/joedevivo/chatterbox.git",
+       {ref,"a6dbc4441d1205f84fcaf06ff992836231c2a1dd"}},
   0},
  {<<"cowlib">>,
   {git,"git://github.com/ninenines/cowlib.git",

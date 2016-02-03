@@ -5,9 +5,6 @@
 -export([spawn_handle/4,
          handle/4]).
 
--define(WIDTH, 500).
--define(HEIGHT, 414).
-
 spawn_handle(Pid, StreamId, Headers, ReqBody) ->
     Handler = fun() ->
         handle(Pid, StreamId, Headers, ReqBody)

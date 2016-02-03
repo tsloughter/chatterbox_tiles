@@ -1,7 +1,7 @@
 chatterbox_tiles
 =====
 
-An OTP application
+An Erlang take on [GopherTiles](https://http2.golang.org/gophertiles) http2 example.
 
 Build
 -----

@@ -10,7 +10,7 @@ Build
 
 ```
 $ sudo apt-get install imagemagick
-$ rebar3 compile
+$ rebar3 release
 $ _build/default/rel/chatterbox_tiles/bin/chatterbox_tiles console
 ```
 

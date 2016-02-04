@@ -18,7 +18,8 @@
 start(_StartType, _StartArgs) ->
     setup_tiles(),
     {ok, P} = elli:start_link([{callback, tiles_callback}, {port, 8080}]),
-    chatterbox_tiles_sup:start_link().
+    chatterbox_tiles_sup:start_link(),
+    chatterbox_sup:start_link().
 
 %%--------------------------------------------------------------------
 stop(_State) ->

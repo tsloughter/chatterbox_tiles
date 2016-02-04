@@ -20,6 +20,9 @@ handle(ConnPid, StreamId, Headers, _ReqBody) ->
                 #{<<"x">> := X, <<"y">> := Y} = DecodedQS ->
                     Latency = maps:get(<<"latency">>, DecodedQS, <<"0">>),
                     Binary = tiles:get_tile(X, Y, Latency),
+                    ResponseHeaders = [{<<":status">>,<<"200">>},
+                                       {<<"content-type">>, <<"image/png">>}],
+                    http2_connection:send_headers(ConnPid, StreamId, ResponseHeaders),
                     http2_connection:send_body(ConnPid, StreamId, Binary);
                 DecodedQS ->
                     Latency = maps:get(<<"latency">>, DecodedQS, <<"0">>),

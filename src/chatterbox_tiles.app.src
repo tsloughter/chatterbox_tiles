@@ -10,8 +10,7 @@
     qsp,
     emagick,
     uuid,
-    elli,
-    chatterbox
+    elli_chatterbox
    ]},
   {env,[]},
   {modules, []},

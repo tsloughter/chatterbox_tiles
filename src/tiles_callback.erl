@@ -1,20 +1,17 @@
 -module(tiles_callback).
 
--export([handle/2,
-         handle_event/3]).
+-export([handle/3]).
 
--behaviour(elli_handler).
+-include_lib("elli_chatterbox/include/elli_chatterbox.hrl").
 
-handle(Req, _Args) ->
-    case elli_request:get_arg(<<"x">>, Req, undefined) of
+handle(_Method, _Path, _Req=#ec_req{args=Args, stream_id=StreamId}) ->
+    case proplists:get_value(<<"x">>, Args, undefined) of
         undefined ->
-            Latency = elli_request:get_arg(<<"latency">>, Req, <<"0">>),
-            {ok, #{<<"content-type">> => <<"text/html">>}, tiles:body(Latency)};
+            Latency = proplists:get_value(<<"latency">>, Args, <<"0">>),
+            {200, [{<<"content-type">>, <<"text/html">>}], tiles:body(Latency)};
         X ->
-            Y = elli_request:get_arg(<<"y">>, Req, undefined),
-            Latency = elli_request:get_arg(<<"latency">>, Req, <<"0">>),
+            Y = proplists:get_value(<<"y">>, Args, undefined),
+            Latency = proplists:get_value(<<"latency">>, Args, <<"0">>),
             Binary = tiles:get_tile(X, Y, Latency),
-            {ok, #{}, Binary}
+            {200, [], Binary}
     end.
-
-handle_event(_, _, _) -> ok.

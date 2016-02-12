@@ -17,7 +17,14 @@
 
 start(_StartType, _StartArgs) ->
     setup_tiles(),
-    elli_chatterbox:start_link(),
+    CertFile = filename:join(code:priv_dir(chatterbox_tiles), "localhost.crt"),
+    KeyFile = filename:join(code:priv_dir(chatterbox_tiles), "localhost.key"),
+    elli_chatterbox:start_link([{ssl, false}, {port, 8080}, {handler, tiles_callback}]),
+    elli_chatterbox:start_link([{ssl, true},
+                                {port, 8081},
+                                {certfile, CertFile},
+                                {keyfile, KeyFile},
+                                {handler, tiles_callback}]),
     chatterbox_tiles_sup:start_link().
 %%--------------------------------------------------------------------
 stop(_State) ->

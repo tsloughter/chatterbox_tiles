@@ -4,7 +4,7 @@
 
 -include_lib("elli_chatterbox/include/elli_chatterbox.hrl").
 
-handle(_Method, _Path, _Req=#ec_req{args=Args, stream_id=StreamId}) ->
+handle(_Method, _Path, _Req=#ec_req{args=Args}) ->
     case proplists:get_value(<<"x">>, Args, undefined) of
         undefined ->
             Latency = proplists:get_value(<<"latency">>, Args, <<"0">>),
